@@ -1,8 +1,7 @@
 from datetime import date
-from typing import Type
 
 class Task():
-    def __init__(self, title:str, description:str, due_date: Type[date], finished:bool=None) -> None:
+    def __init__(self, title:str, description:str, due_date: date, finished:bool=None) -> None:
         self.title = title
         self.description = description
         self.due_date = due_date
@@ -21,7 +20,7 @@ class Task():
     def update_task_description(self, new_description:str) -> None:
         self.description = new_description
 
-    def update_task_due_date(self, due_date: Type[date]) -> None:
+    def update_task_due_date(self, due_date: date) -> None:
         self.due_date = due_date
     
     def finish_task(self) -> None:
