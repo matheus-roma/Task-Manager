@@ -13,27 +13,17 @@ class TaskManager:
             self.tasks.remove(task)
 
     def show_tasks(self) -> None:
+        print("=====")
         if not self.tasks:
             print("No tasks founded")
+            print("=====")
         else:
             for task in self.tasks:
                 print(task)
-            print("===")
+            print("=====")
 
 def main():
-    task_manager = TaskManager()
-
-    task1 = Task("Finish homework", "Complete math exercises", date(2023, 6, 15))
-    task2 = Task("Buy groceries", "Get milk, eggs, and bread", date(2023, 6, 10))
-
-    task_manager.add_task(task1)
-    task_manager.add_task(task2)
-
-    task_manager.show_tasks()
-
-    task1.finish_task()
-
-    task_manager.show_tasks()
+    print("Main being executed")
 
 
 if __name__ == '__main__':

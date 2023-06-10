@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+import argparse
+from datetime import date
+
+from task_manager.task_manager import Task, TaskManager, main
+
+
+def create_task(args):
+    title = args.title
+    description = args.description
+    due_date = date.fromisoformat(args.due_date)
+    
+    task = Task(title, description, due_date)
+    
+    task_manager = TaskManager()
+    task_manager.add_task(task)
+    print(f"New task created and added to the task manager: {task.title}")
+    task_manager.show_tasks()
+
+    
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prog='task_manager_cli')
+    subparsers = parser.add_subparsers()
+
+    # Subparser for creating a new task
+    create_task_parser = subparsers.add_parser('create', help='Create a new task')
+    create_task_parser.add_argument('-t', '--title', required=True, help='Task title')
+    create_task_parser.add_argument('-d', '--description', required=True, help='Task description')
+    create_task_parser.add_argument('-dd', '--due-date', required=True, help='Task due date (YYYY-MM-DD)')
+    create_task_parser.set_defaults(func=create_task)
+
+    args = parser.parse_args()
+    if hasattr(args, 'func'):
+        args.func(args)
+    else:
+        main()
