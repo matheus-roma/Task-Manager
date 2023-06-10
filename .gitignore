@@ -1,0 +1,5 @@
+task_manager.egg-info/
+__pycache__/
+dist/
+build/
+bin/

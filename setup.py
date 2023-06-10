@@ -4,10 +4,5 @@ setup(
     name='task_manager',
     version='1.0',
     packages=find_packages(),
-    entry_points={
-        'console_scripts': [
-            'task_manager = task_manager.task_manager_cli:main',
-        ],
-    },
+    scripts=['bin/task_manager_cli'],
 )
-
